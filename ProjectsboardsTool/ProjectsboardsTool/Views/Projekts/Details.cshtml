@@ -1,0 +1,116 @@
+﻿@model ProjectsboardsTool.Models.Projekt
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Projekt</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Projektleiter)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Projektleiter)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StandinProzent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StandinProzent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Budet)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Budet)
+        </dd>
+
+    </dl>
+
+    @{
+        ProjectsboardsTool.Data.ProjectsboardsToolContext ProjectsboardsToolContext = new ProjectsboardsTool.Data.ProjectsboardsToolContext();
+        List<ProjectsboardsTool.Models.MitarbeiterProject> MitarbeiterProject = ProjectsboardsToolContext.MitarbeiterProjects.ToList();
+        List<ProjectsboardsTool.Models.Mitarbeiter> Mitarbeiter = ProjectsboardsToolContext.Mitarbeiters.ToList();
+        List<ProjectsboardsTool.Models.TasksProject> TasksProject = ProjectsboardsToolContext.TasksProjects.ToList();
+        List<ProjectsboardsTool.Models.Task> Task = ProjectsboardsToolContext.Tasks.ToList();
+
+        <tr>
+            <th>
+                MitarbeiterID
+            </th>
+            <th>
+                Name
+            </th>
+            <th></th>
+        </tr>
+        <br />
+        foreach (var x in MitarbeiterProject)
+        {
+            foreach (var y in Mitarbeiter)
+            {
+                if (y.ID == x.Mitarbeiter)
+                {
+                    <tr>
+                        <td>
+                            @y.ID
+                        </td>
+                        <td>
+                            @y.Name
+                        </td>
+                    </tr>
+                }
+                <br />
+            }
+
+        }
+        <br />
+        <tr>
+            <th>
+                TaskID
+            </th>
+            <th>
+                Name
+            </th>
+
+        </tr>
+        <br />
+        foreach (var x in TasksProject)
+        {
+            foreach (var y in Task)
+            {
+                if (y.ID == x.Task)
+                {
+                    <tr>
+                        <td>
+                            @y.ID
+                        </td>
+                        <td>
+                            @y.Name
+                        </td>
+                    </tr>
+                    <br />
+                }
+            }
+
+        }
+    }
+    <br />
+    @Html.ActionLink("Back to List", "Index")
+    </p>
