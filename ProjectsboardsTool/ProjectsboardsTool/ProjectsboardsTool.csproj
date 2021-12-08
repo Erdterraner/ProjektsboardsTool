@@ -45,6 +45,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -121,9 +127,37 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MitarbeiterProjectsController.cs" />
+    <Compile Include="Controllers\MitarbeitersController.cs" />
+    <Compile Include="Controllers\ProjektsController.cs" />
+    <Compile Include="Controllers\TasksController.cs" />
+    <Compile Include="Controllers\TasksProjectsController.cs" />
+    <Compile Include="Data\ProjectsboardsToolContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202112011052029_InitialCreate.cs" />
+    <Compile Include="Migrations\202112011052029_InitialCreate.Designer.cs">
+      <DependentUpon>202112011052029_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112080749512_bruk.cs" />
+    <Compile Include="Migrations\202112080749512_bruk.Designer.cs">
+      <DependentUpon>202112080749512_bruk.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112080818089_bruk1.cs" />
+    <Compile Include="Migrations\202112080818089_bruk1.Designer.cs">
+      <DependentUpon>202112080818089_bruk1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112080820486_bruk2.cs" />
+    <Compile Include="Migrations\202112080820486_bruk2.Designer.cs">
+      <DependentUpon>202112080820486_bruk2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Mitarbeiter.cs" />
+    <Compile Include="Models\MitarbeiterProject.cs" />
+    <Compile Include="Models\Projekt.cs" />
+    <Compile Include="Models\Task.cs" />
+    <Compile Include="Models\TasksProject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -162,10 +196,34 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\TasksProjects\Create.cshtml" />
+    <Content Include="Views\TasksProjects\Delete.cshtml" />
+    <Content Include="Views\TasksProjects\Details.cshtml" />
+    <Content Include="Views\TasksProjects\Edit.cshtml" />
+    <Content Include="Views\TasksProjects\Index.cshtml" />
+    <Content Include="Views\Tasks\Create.cshtml" />
+    <Content Include="Views\Tasks\Delete.cshtml" />
+    <Content Include="Views\Tasks\Details.cshtml" />
+    <Content Include="Views\Tasks\Edit.cshtml" />
+    <Content Include="Views\Tasks\Index.cshtml" />
+    <Content Include="Views\Projekts\Create.cshtml" />
+    <Content Include="Views\Projekts\Delete.cshtml" />
+    <Content Include="Views\Projekts\Details.cshtml" />
+    <Content Include="Views\Projekts\Edit.cshtml" />
+    <Content Include="Views\Projekts\Index.cshtml" />
+    <Content Include="Views\MitarbeiterProjects\Create.cshtml" />
+    <Content Include="Views\MitarbeiterProjects\Delete.cshtml" />
+    <Content Include="Views\MitarbeiterProjects\Details.cshtml" />
+    <Content Include="Views\MitarbeiterProjects\Edit.cshtml" />
+    <Content Include="Views\MitarbeiterProjects\Index.cshtml" />
+    <Content Include="Views\Mitarbeiters\Create.cshtml" />
+    <Content Include="Views\Mitarbeiters\Delete.cshtml" />
+    <Content Include="Views\Mitarbeiters\Details.cshtml" />
+    <Content Include="Views\Mitarbeiters\Edit.cshtml" />
+    <Content Include="Views\Mitarbeiters\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -179,6 +237,20 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202112011052029_InitialCreate.resx">
+      <DependentUpon>202112011052029_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112080749512_bruk.resx">
+      <DependentUpon>202112080749512_bruk.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112080818089_bruk1.resx">
+      <DependentUpon>202112080818089_bruk1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112080820486_bruk2.resx">
+      <DependentUpon>202112080820486_bruk2.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
