@@ -75,8 +75,8 @@
                             @y.Name
                         </td>
                     </tr>
+                    <br />
                 }
-                <br />
             }
 
         }
@@ -84,6 +84,8 @@
         <tr>
             <th>
                 TaskID
+            </th>
+            <th>
             </th>
             <th>
                 Name
@@ -97,15 +99,17 @@
             {
                 if (y.ID == x.Task)
                 {
-                    <tr>
-                        <td>
-                            @y.ID
-                        </td>
-                        <td>
-                            @y.Name
-                        </td>
-                    </tr>
-                    <br />
+                <tr>
+                <td>
+                    @y.ID
+                </td>
+                <th>
+                </th>
+                <td>
+                    @y.Name
+                </td>
+                </tr>
+                <br />
                 }
             }
 
